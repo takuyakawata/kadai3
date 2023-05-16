@@ -4,28 +4,151 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>トレーニングくん</title>
+    <link rel="stylesheet" href="index.css">
+    <title>ALL for MUSCLE</title>
 </head>
 <body>
 <main>
-<!-- ===============================================================================================
+<!-- =============================================================================
 タイトル画面
-=============================================================================================== -->
+=============================================================================-->
+<div class="top"  id="">
+   <h1>ALL for MUSCLE</h1>
+   <h3>~すべては筋力トレーニングのために〜</h3>
+</div>
+<!-- =============================================================================
+カウンセリング画面
+============================================================================= -->
+<div>
+<p>トレーニングのめあて</p>
+<textarea name="" id="goal" cols="30" rows="1"></textarea>
+<button>決定</button>
+</div>
+
+<div>
+<p>週に何回ジムでトレーニングに行く？</p>
+<textarea name="" id="goal" cols="30" rows="1"></textarea>
+
+<select name="" id="count_week_gym">
+</select>
+
+<button>決定</button>
+</div>
+
+<div>
+<p>トレーニングをするためにどこを鍛えたい？</p>
+<textarea name="" id="" cols="30" rows="1"></textarea>
+<button>決定</button>
+</div>
+
+
+
+<div>
+<p>トレーニング</p>
+<textarea name="" id="" cols="30" rows="1"></textarea>
+<button>決定</button>
+</div>
+
+<!-- =============================================================================
+トレーニンングの記録画面＿＿何を何回行ったか
+============================================================================= -->
+<div>===========================</div>
+<p>======トレーニングの記録========</p>
+<div>
+
+    <input type="text" list="months" placeholder="x月">
+    <datalist id="months"></datalist>
+
+    <input type="text" list="days" placeholder="x日">
+    <datalist id="days"></datalist>
+
+    <input type="text" list="day_of_weeks" " placeholder="x曜日">
+    <datalist id="day_of_weeks"></datalist>のトレーニング
+    <button id="date_input_btn">です！</button>
+</div>
+
+<section class="record" id="record1">
+    <p>=======トレーニングメニュー その1==========</p>
+    <div class="training">
+         <div class=training_menu id="training_menu1">
+        <!-- <input type="text" list="training_menu1_name" placeholder="トレーニング名"> -->
+            <p id="training_menu1_set_count">１セット目</p>
+            
+            <select class="training_menu_name" id="training_menu1_name">
+
+            </select>
+
+            <select class="training_menu_kg_count"  id="training_menu1_kg_count">
+
+            </select>
+
+            <select  class="training_menu_rep_count" id="training_menu1_rep_count">
+
+            </select>
+ 
+        </div>
+        <div>
+              <button id="set1_add_btn">次のセットへ</button>
+              <button id="set1_finish_btn">セット終了</button>
+          
+        </div>
+    </div>
+</section>
+
+<!-- ============================================= -->
+    
+
+
+<!-- 記録するトレーニングメニューの追加を行う -->
+<div>
+    <button id="training_menu_add_btn">トレーニングメニューの追加</button>
+    
+</div>
+
+
+<!-- jsで任意で追加していけるようにしたい -->
+<!-- <p>トレーニング2</p>
 <div>
 
 
+<select name="" id="training_rep_count">
+    <option value="0rep">
+</select>
+
+<select name="" id="training_set_count">
+    <option value="0set">
+</select>
+
+<button>決定</button>
+</div> -->
+
+<!-- ============================================================== -->
+<section id="history_area">
+    <h1>筋肉の歴史</h1>
+    <div class="history">
+        <p id="text1_set1">1セット目</p>
+        <p id="text1_set2"></p>
+        <p id="text1_set3" ></p>
+        <p id="text1_set4"></p>
+    </div>
+
+</section>
+    <div>
+        <button id="training_finish_btn">トレーニングの終了</button>
+    </div>
 
 
-</div>
+
+
+ <button id="menu_finish_btn">メニューの終わり</button>
+
+
+
+
 
 </main>
 
-
-
-
-
-
-
-
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
