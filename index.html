@@ -9,8 +9,6 @@
 </head>
 <body>
 
-
-    
 <main>
 <!-- =============================================================================
 タイトル画面
@@ -47,7 +45,7 @@
 
 
 <div>
-<p>トレーニング</p>
+<p>トレーニング日誌</p>
 <textarea name="" id="" cols="30" rows="1"></textarea>
 <button>決定</button>
 </div>
@@ -71,61 +69,59 @@
 </div>
 
 <section class="record" id="record1">
-    <p>=======トレーニングメニュー その1==========</p>
+    <p>=======トレーニングメニュー==========</p>
     <div class="training">
-         <div class=training_menu id="training_menu1">
-        <!-- <input type="text" list="training_menu1_name" placeholder="トレーニング名"> -->
-            <p id="training_menu1_set_count">１セット目</p>
-            
-            <select class="training_menu_name" id="training_menu1_name">
+        <div class=training_menu id="training_menu1">
+        <!-- トレーニングの種目の記録 -->
 
-            </select>
+        <input type="text" id="input_menu_name" list="training_menu_name" placeholder="種目">
+         <datalist class="training_menu_name"  id="training_menu_name"></datalist >
 
-            <select class="training_menu_kg_count"  id="training_menu1_kg_count">
+        <!-- トレーニングのセット数の記録 -->
+        <input type="text" id="input_menu_set_count" list="training_menu_set_count" placeholder="1セット">
+            <datalist class="training_menu_set_count" id="training_menu_set_count" value=""></datalist>
 
-            </select>
+            <!-- トレーニングの負荷の重さ -->
+        <input type="text" id="input_menu_kg_count" list="training_menu_kg_count" placeholder="50kg">
+            <datalist class="training_menu_kg_count" id="training_menu_kg_count" value=""></datalist>
 
-            <select  class="training_menu_rep_count" id="training_menu1_rep_count">
+        <!-- トレーニングの１セットあたりの回数 -->
+        <input type="text"  id="input_menu_rep_count" list="training_menu_rep_count" placeholder="10rep">
+            <datalist class="training_menu_rep_count"id="training_menu_rep_count" value=""></datalist>
 
-            </select>
- 
         </div>
         <div>
-              <button id="set1_add_btn">次のセットへ</button>
-              <button id="set1_finish_btn">セット終了</button>
+              <button id="log_btn">記録する</button>
+              <button id="finish_btn">セット終了</button>
           
         </div>
     </div>
 </section>
 
+<div id="input_text">
+
+</div>
 <!-- ============================================= -->
-    
+
 
 
 <!-- 記録するトレーニングメニューの追加を行う -->
-<div>
+<!-- <div>
     <button id="training_menu_add_btn">トレーニングメニューの追加</button>
-    
-</div>
-
-
-<!-- jsで任意で追加していけるようにしたい -->
-<!-- <p>トレーニング2</p>
-<div>
-
-
-<select name="" id="training_rep_count">
-    <option value="0rep">
-</select>
-
-<select name="" id="training_set_count">
-    <option value="0set">
-</select>
-
-<button>決定</button>
 </div> -->
 
 <!-- ============================================================== -->
+<!-- トレーニンングの日誌 -->
+<div>
+    <p>トレーニング日誌</p>
+    <textarea name="" id="training_diary" cols="50" rows="10">
+    </textarea>
+    <button  id="training_diary_save_btn">保存</button>
+</div>
+
+
+
+
 <section id="history_area">
     <h1>筋肉の歴史</h1>
     <div class="history">

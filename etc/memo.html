@@ -109,3 +109,66 @@ console.log(data);を確認すると、''と表示される。
 htmはこのように書いているが、訂正があるか
 
 // localStorage.setItem("memo", text);
+
+
+
+
+
+
+
+<div class=training_menu id="training_menu1">
+    <!-- トレーニングの種目の記録 -->
+    <input type="text" list="training_menu_name" " placeholder=" 種目">
+    <datalist class="training_menu_name" id="training_menu_name"></datalist>
+
+
+    <!-- トレーニングのセット数の記録 -->
+    <input type="text" list="training_menu_set_count" " placeholder=" 1セット">
+    <datalist class="training_menu_set_count" id="training_menu_set_count" value=""></datalist>
+
+
+
+    <!-- トレーニングの負荷の重さ -->
+    <input type="text" list="training_menu_kg_count" placeholder="50kg">
+    <datalist class="training_menu_kg_count" id="training_menu_kg_count"></datalist>
+
+    <!-- トレーニングの１セットあたりの回数 -->
+    <input type="text" list="training_menu_rep_count" placeholder="10rep">
+    <datalist class="training_menu_rep_count" id="training_menu_rep_count"></datalist>
+
+</div>
+<div>
+    <button id="log_btn">記録する</button>
+    <button id="finish_btn">セット終了</button>
+
+</div>
+</div>
+
+
+jqueryが
+
+$("#log_btn").on("click", function () {
+
+const name = $("#training_menu_name").val();
+const set = $("#training_menu_set").val();
+const kg = $("#training_menu_kg_count").val();
+const rep = $("#training_menu_rep_count").val();
+
+const data = {
+name: name,
+set: set,
+kg : kg,
+rep : rep,
+};
+
+$("#text" ).text((data.name) + (data.set) + (data.kg) + (data.rep));
+
+const json = JSON.stringify(data);//JSONで互換性を設定
+
+console.log(json);
+localStorage.setItem("log1" , json);
+
+console.log(json);
+
+
+index.js:116 {"name":"","set":"","kg":"","rep":""}ってコンソールで表示されるけどどうして？
