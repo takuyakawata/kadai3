@@ -9,6 +9,7 @@ $("#goal_text_save_btn").on("click", function () {
 
     const json1 = JSON.stringify(trainingGoal);//JSONで互換性を設定
     
+    
      console.log(json1);
     localStorage.setItem("goal", json1);
 
