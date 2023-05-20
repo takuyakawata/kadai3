@@ -188,13 +188,14 @@ $('#countdown_time_list').on('input', function() {
    
     if (countdown < 0) {
       clearInterval(intervalId);
-      countdown = k * 60 *  1000;
+      countdown = myMinutes * 60 *  1000;
     }
     const totalSeconds = Math.floor(countdown / 1000);
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
       $("#countdown").text(`${minutes}:${seconds}`);
 };
+
 
 // タイマーに入れる時間を設定する
 // その際dロップダウンリストから選択する
@@ -223,9 +224,9 @@ function trainingLog() {
     };
     //トレーニングのメニュー、回数、セット数（何セット目か）
     for (let i = 1; i <= 10; i++) {
-        $(".training_menu_set_count").append(`<option value="${i}セット">${i}セット</option>`);
+        $(".training_menu_set_count").append(`<option value="${i}セット目">${i}セット目</option>`);
     };
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 5; i <= 150; i = i+5) {
         $(".training_menu_kg_count").append(`<option value="${i}kg">${i}kg</option>`);
     };
     for (let i = 1; i <= 20; i++) {
@@ -588,7 +589,7 @@ $(window).on('load', function () {
     $('.tab li:first-of-type').addClass("active"); //最初のliにactiveクラスを追加
     $('.area:first-of-type').addClass("is-active"); //最初の.areaにis-activeクラスを追加
   var hashName = location.hash; //リンク元の指定されたURLのハッシュタグを取得
-  GethashID (hashName);//設定したタブの読み込み
+    GethashID(hashName);//設定したタブの読み込み
 });
       
       
