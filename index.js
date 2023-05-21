@@ -9,7 +9,7 @@ $("#goal_text_save_btn").on("click", function () {
 
     const json1 = JSON.stringify(trainingGoal);//JSONで互換性を設定
     
-    
+
      console.log(json1);
     localStorage.setItem("goal", json1);
 
@@ -36,6 +36,9 @@ for (let i = 1; i <= 10; i++) {
     $("#count_week_gym_list").append(`<option value="${i}回"> ${i}回 </option>`);
 };
 // ------------------------------------------------------------
+// 基本的に非表示
+$("#count_week_gym_save_btn").hide();
+    $("#count_week_gym_list").hide();
 // 決定ボタンを押した時の値の獲得
 $("#count_week_gym_save_btn").on("click", function () {
     const gymCount = $("#count_week_gym_list").val();
@@ -45,10 +48,21 @@ $("#count_week_gym_save_btn").on("click", function () {
      console.log(json2);
     localStorage.setItem("count", json2);
     
-
     $("#count_week_gym_text").text(gymCount);
+    $(this).hide();
+    $("#count_week_gym_list").hide();
+    
 
 });
+// ------------------------------------------------------------
+// 変更ボタンを押した時の値の獲得
+$("#count_week_gym_change_btn").on("click", function () {
+
+    $("#count_week_gym_save_btn").show();
+    $("#count_week_gym_list").show();
+
+});
+
 // ------------------------------------------------------------
 // リロード後もlocalstorageから値を取得して表示する
 if (localStorage.getItem("count")) {
@@ -227,6 +241,13 @@ function trainingLog() {
     for (let i = 1; i <= 10; i++) {
         $(".training_menu_set_count").append(`<option value="${i}セット目">${i}セット目</option>`);
     };
+
+
+    $("#training_menu_set_count").change(function () {
+        let x = $('option:selected').val();
+    });
+
+
     for (let i = 5; i <= 150; i = i+5) {
         $(".training_menu_kg_count").append(`<option value="${i}kg">${i}kg</option>`);
     };
@@ -235,8 +256,6 @@ function trainingLog() {
     };
 };
 trainingLog();// ドロップダウンリストの内容の編集
-
-
 // --------------------------------------------------------------------
 // 日付の入力とトレーニングの記録の有効化
 $("#date_input_btn").on("click", function () {
@@ -255,6 +274,8 @@ $("#finish_btn").on("click", function () {
 // 記録するボタンの動き
 let number = 1;
 $("#log_btn").on("click", function () {
+
+    let a = $()
 
     const name = $("#input_menu_name").val();
     const set = $("#input_menu_set_count").val();
@@ -557,7 +578,7 @@ $("#training_diary_Sunday_clear_btn").on("click", function () {
 
 
 // ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝==============
-// トレーニングの履歴をつくる　日誌のモーダルの動き
+// 全体のメニューをつくる　日誌のモーダルの動き
 // ==================================================================
 //任意のタブにURLからリンクするための設定
 function GethashID (hashIDName){
@@ -592,6 +613,43 @@ $(window).on('load', function () {
   var hashName = location.hash; //リンク元の指定されたURLのハッシュタグを取得
     GethashID(hashName);//設定したタブの読み込み
 });
-      
-      
-      
+
+
+
+
+
+// ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝==============
+// diaryの履歴をつくる　日誌のモーダルの動き
+// ==================================================================
+//任意のタブにURLからリンクするための設定
+function GethashID1 (hashIDName1){
+  if(hashIDName1){
+    //タブ設定
+    $('.tab1 li').find('a').each(function() { //タブ内のaタグ全てを取得
+     var idName1 = $(this).attr('href'); //タブ内のaタグのリンク名（例）#lunchの値を取得 
+
+      if(idName1 == hashIDName1){ //リンク元の指定されたURLのハッシュタグ（例）http://example.com/#lunch←この#の値とタブ内のリンク名（例）#lunchが同じかをチェック
+        var parentElm1 = $(this).parent(); //タブ内のaタグの親要素（li）を取得
+        $('.tab1 li').removeClass("active"); //タブ内のliについているactiveクラスを取り除き
+        $(parentElm1).addClass("active"); //リンク元の指定されたURLのハッシュタグとタブ内のリンク名が同じであれば、liにactiveクラスを追加
+        //表示させるエリア設定
+        $(".area1").removeClass("is-active"); //もともとついているis-activeクラスを取り除き
+        $(hashIDName1).addClass("is-active"); //表示させたいエリアのタブリンク名をクリックしたら、表示エリアにis-activeクラスを追加
+      }
+    });
+  }
+}
+//タブをクリックしたら
+$('.tab1 a').on('click', function() {
+  var idName1 = $(this).attr('href'); //タブ内のリンク名を取得
+  GethashID1 (idName1);//設定したタブの読み込みと
+  return false;//aタグを無効にする
+});
+
+// 上記の動きをページが読み込まれたらすぐに動かす
+$(window).on('load', function () {
+    $('.tab1 li:first-of-type').addClass("active"); //最初のliにactiveクラスを追加
+    $('.area1:first-of-type').addClass("is-active"); //最初の.areaにis-activeクラスを追加
+  var hashName1 = location.hash; //リンク元の指定されたURLのハッシュタグを取得
+    GethashID1(hashName1);//設定したタブの読み込み
+});

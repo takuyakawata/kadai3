@@ -3,7 +3,7 @@ body{
 }
 
 main{
-    background-color: rgb(191, 142, 236);
+    background-color: rgb(135, 46, 230);
     max-width: 600px;
     min-width: 500px;
     margin:0 auto;
@@ -18,26 +18,37 @@ main{
 .training_menu{
     display: flex;
 }
-
-
 /* ================================================================== */
 /* 日誌のモーダル化*/
 
 /*tabの形状*/
-.tab {
+.tab,.tab1 {
+    display: flex;
+    flex-wrap: wrap;
+}
+.tab1 {
     display: flex;
     flex-wrap: wrap;
 }
 
 .tab li a {
     display: block;
-    background: #ddd;
+    background-color: rgb(191, 142, 236);
     margin: 0 2px;
     padding: 10px 20px;
+}
+.tab1 li a {
+    display: block;
+    background-color: rgb(191, 142, 236);
+    margin: 0 1px;
+    padding: 10px 10px;
 }
 
 /*liにactiveクラスがついた時の形状*/
 .tab li.active a {
+    background: #fff;
+}
+.tab1 li.active a {
     background: #fff;
 }
 
@@ -48,12 +59,28 @@ main{
     /*はじめは非表示*/
     opacity: 0;
     /*透過0*/
+    background-color: rgb(191, 142, 236);
+    padding: 0 20px 50px 20px;
+}
+.area1 {
+    display: none;
+    /*はじめは非表示*/
+    opacity: 0;
+    /*透過0*/
     background: #fff;
-    padding: 50px 20px;
+    padding: 30px 10px;
 }
 
 /*areaにis-activeというクラスがついた時の形状*/
 .area.is-active {
+    display: block;
+    /*表示*/
+    animation-name: displayAnime;
+    /*ふわっと表示させるためのアニメーション*/
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+.area1.is-active {
     display: block;
     /*表示*/
     animation-name: displayAnime;
@@ -82,6 +109,7 @@ body {
 
 ul {
     list-style: none;
+    background-color: rgb(191, 142, 236);
 }
 
 a {
@@ -95,14 +123,24 @@ a {
     margin: 30px auto;
     background: #fefefe;
 }
+.wrapper1 {
+    width: 100%;
+    max-width: 700px;
+    margin: 30px auto;
+    background: #fefefe;
+}
 
-.area h2 {
+.area h2,.area1 h2 {
     font-size: 1.3rem;
     margin: 0 0 20px 10px;
 }
 
 .area li {
     padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.area1 li {
+    padding: 0px;
     border-bottom: 1px solid #ddd;
 }
 
