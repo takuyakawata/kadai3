@@ -9,11 +9,10 @@
 </head>
 <body>
 
-
 <main>
-<!-- =============================================================================
+<!-- =================================================
 タイトル画面
-=============================================================================-->
+=====================================================-->
 <div class="top"  id="">
    <h1>ALL for MUSCLE</h1>
    <h3>~すべては筋力トレーニングのために〜</h3>
@@ -27,51 +26,56 @@
         <li><a href="#tool">tool</a></li>
         <li><a href="#link">link</a></li>
     </ul>
-<!-- =============================================================================
+<!-- ==============================================
 カウンセリング画面
-============================================================================= -->
+==================================================== -->
     <div id="home" class="area">
-        <div>
-            <p>トレーニングのめあて</p>
-            <textarea name="" id="goal_text" cols="30" rows="1"></textarea>
-            <button id="goal_text_save_btn">決定</button>
-        </div>
+        <div class="tool_in">
+            <div>
+                <p>トレーニングのめあて</p>
+                <textarea name="" id="goal_text" cols="30" rows="1"></textarea>
+                <button id="goal_text_save_btn">決定</button>
+            </div>
 
-        <div>
-            <p>週に何回ジムでトレーニングに行く？</p>
-            <textarea name="" id="count_week_gym_text" cols="5" rows="1" value=""></textarea>
-            <select name="" id="count_week_gym_list" value="">
-            </select>
+            <div>
+                <p>週に何回ジムでトレーニングに行く？</p>
+                <textarea name="" id="count_week_gym_text" cols="5" rows="1" value=""></textarea>
+                <select name="" id="count_week_gym_list" value="">
+                </select>
 
-            <button id="count_week_gym_save_btn">決定</button>
-            <button id="count_week_gym_change_btn">変更</button>
-        </div>
+                <button id="count_week_gym_save_btn">決定</button>
+                <button id="count_week_gym_change_btn">変更</button>
+            </div>
 
-        <div>
-            <p>特にどこを鍛えたい？</p>
-            <textarea name="" id="training_main_menu_text" cols="30" rows="1"></textarea>
-            <button id="training_main_menu_save_btn">決定</button>
+            <div>
+                <p>特にどこを鍛えたい？</p>
+                <textarea name="" id="training_main_menu_text" cols="30" rows="1"></textarea>
+                <button id="training_main_menu_save_btn">決定</button>
+            </div>
+        <!-- inner_area -->
         </div>
     </div>
 
 
-<!-- =============================================================================
+<!-- ===========================================
 トレーニングの記録　
-============================================================================= -->
+================================================ -->
     <div id="training" class="area">
-        <p>======トレーニングの記録========</p>
-        <div>
-            <input id="date" type="date" list="date">
-            のトレーニング
-            <button id="date_input_btn">始めるよ</button>
-        </div>
-        <!-- =============================================================================
+        <div class="inner_area">
+            <p>======トレーニングの記録========</p>
+            <div>
+                <input id="date" type="date" list="date">
+                のトレーニング
+                <button id="date_input_btn">始めるよ</button>
+            </div>
+        <!-- ------------------------------------------
         トレーニンングの記録画面＿＿何を何回行ったか
-        ============================================================================= -->
-        <section class="record" id="record1">
-            <p>=======トレーニングメニューを記録していこう==========</p>
-            <div class="training">
-                <div class="training_menu" id="training_menu1">
+        -------------------------------------------------->
+            <section class="record" id="record1">
+       
+                <p>===トレーニングメニューを記録していこう===</p>
+                <div class="training">
+                    <div class="training_menu" id="training_menu1">
                     <!-- トレーニングの種目の記録 -->
         
                     <input type="text" id="input_menu_name" list="training_menu_name" placeholder="種目">
@@ -88,19 +92,23 @@
                     <!-- トレーニングの１セットあたりの回数 -->
                     <input type="text" id="input_menu_rep_count" list="training_menu_rep_count" placeholder="10rep">
                     <datalist class="training_menu_rep_count" id="training_menu_rep_count" value=""></datalist>
-        
+                <!-- class="training"> -->
                 </div>
+
                 <div>
                     <button id="log_btn">記録する</button>
                     <button id="finish_btn">トレーニング終了</button>
-        
                 </div>
-            </div>
-        </section>
+
+            <!-- class="record" id="record1" -->
+            </section>
         
-        <div id="input_text">
-            <p id="input_date"></p>
+                <div id="input_text">
+                    <p id="input_date"></p>
+                </div>
+        <!-- <div class="tool_in">-->
         </div>
+    <!-- id="training" class="area" -->
     </div>
 
 
@@ -183,55 +191,61 @@
     
     </div>
 
-
-
 <!-- =============================================================================
 タイマー
 ============================================================================= -->
     <div id="tool" class="area">
-<div id="stop_watch">
-            <p>★ストップウォッチ</p>
-            <p id="timer">00:00:00</p>
-            <!-- 時間の表示 -->
-            <button id="timer_start_btn">スタート</button>
+        <div class="tool_in">
+            <div id="stop_watch">
+                <p>★ストップウォッチ</p>
+                <p id="timer">00:00:00</p>
+                <!-- 時間の表示 -->
+                <button id="timer_start_btn">スタート</button>
 
-            <button id="timer_stop_btn">ストップ</button>
+                <button id="timer_stop_btn">ストップ</button>
 
-            <button id="timer_reset_btn">リセット</button>
+                <button id="timer_reset_btn">リセット</button>
+            </div>
+
+            <div id="countdown_timer">
+                <p>★カウントダウンタイマー</p>
+
+                <select name="" id="countdown_time_list" value=""></select>
+
+                <p id="countdown">00:00</p>
+                <!-- 時間の表示 -->
+                <button id="countdown_start_btn">スタート</button>
+
+                <button id="countdown_stop_btn">ストップ</button>
+
+                <button id="countdown_reset_btn">リセット</button>
+            </div>
+        <!-- tool_in -->
         </div>
-
-        <div id="countdown_timer">
-            <p>★カウントダウンタイマー</p>
-
-            <select name="" id="countdown_time_list" value=""></select>
-
-
-            <p id="countdown">00:00</p>
-            <!-- 時間の表示 -->
-            <button id="countdown_start_btn">スタート</button>
-
-            <button id="countdown_stop_btn">ストップ</button>
-
-            <button id="countdown_reset_btn">リセット</button>
-        </div>
-      
+    <!-- id="tool" class="area" -->
     </div>
 
 <!-- =============================================================================
 link画面　リンクのアイコンを押したら、ホームページにとぶことができる。
 ============================================================================= -->
     <div id="link" class="area">
-        <div>
-            <a href="https://www.instagram.com/anytime_yamaguchiyoshiki/" target="_blank"><img class="img_instagram"
-                    src="tool/Instagram_Glyph_White.png" alt="anytime">
+    <div class="inner_area">
+         <div>
+            
+            
+            <a href="https://www.instagram.com/anytime_yamaguchiyoshiki/" target="_blank"><img class="img_instagram"src="tool/Instagram_Glyph_White.png" alt="anytime"></a>
+                
+                <p>インスタグラム</p>
         </div>
 
 
         <div>
-            <a href="https://www.anytimefitness.co.jp/yamaguchi-yoshiki/" target="_blank"><img src="tool/black_dumbbell.png"
-                    alt="anytimefitness"></a>
+            <a href="https://www.anytimefitness.co.jp/yamaguchi-yoshiki/" target="_blank"><img src="tool/black_dumbbell.png"alt="anytimefitness"></a>
+            <p>エニタイムフィットネス<br> 山口吉敷店HP</p>
         </div>
     </div>
+    </div>
+
 <!-- id="training" class="area" -->
 </div>
 
